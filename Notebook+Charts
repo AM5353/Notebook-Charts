@@ -1,1 +1,30 @@
+import pandas as pd
+import matplotlib.pyplot as plt
 
+# 1. Load the CSV file
+df = pd.read_csv("sales.csv")   # replace with your file name
+
+# Show first few rows
+print(df.head())
+
+# 2. Group data: Total sales by product
+sales_by_product = df.groupby("Product")["Sales"].sum()
+print("\nTotal Sales by Product:\n", sales_by_product)
+
+# 3. Group data: Total sales by month
+sales_by_month = df.groupby("Month")["Sales"].sum()
+print("\nTotal Sales by Month:\n", sales_by_month)
+
+# 4. Plot sales by product
+sales_by_product.plot(kind='bar')
+plt.title("Sales by Product")
+plt.xlabel("Product")
+plt.ylabel("Total Sales")
+plt.show()
+
+# 5. Plot sales by month
+sales_by_month.plot(kind='line')
+plt.title("Monthly Sales Trend")
+plt.xlabel("Month")
+plt.ylabel("Sales")
+plt.show()
