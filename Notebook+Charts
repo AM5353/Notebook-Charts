@@ -28,3 +28,4 @@ plt.title("Monthly Sales Trend")
 plt.xlabel("Month")
 plt.ylabel("Sales")
 plt.show()
+
